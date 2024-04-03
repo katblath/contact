@@ -1,35 +1,27 @@
-import { useState } from 'react'
-import reactLogo from './assets/react.svg'
-import viteLogo from '/vite.svg'
-import './App.css'
+import "./App.css";
+import ContactList from "./components/ContactList";
+import { useState } from "react";
+import SelectedContact from "./components/SelectedContact";
+// import { dummyContacts } from "./components/ContactList";
 
 function App() {
-  const [count, setCount] = useState(0)
-
+  const [selectedContactID, setSelectedContactID] = useState(null);
   return (
     <>
       <div>
-        <a href="https://vitejs.dev" target="_blank">
-          <img src={viteLogo} className="logo" alt="Vite logo" />
-        </a>
-        <a href="https://react.dev" target="_blank">
-          <img src={reactLogo} className="logo react" alt="React logo" />
-        </a>
+        {selectedContactID ? (
+          <div>
+            <SelectedContact
+              setSelectedContactID={setSelectedContactID}
+              selectedContactID={selectedContactID}
+            />
+          </div>
+        ) : (
+          <ContactList setSelectedContactID={setSelectedContactID} />
+        )}
       </div>
-      <h1>Vite + React</h1>
-      <div className="card">
-        <button onClick={() => setCount((count) => count + 1)}>
-          count is {count}
-        </button>
-        <p>
-          Edit <code>src/App.jsx</code> and save to test HMR
-        </p>
-      </div>
-      <p className="read-the-docs">
-        Click on the Vite and React logos to learn more
-      </p>
     </>
-  )
+  );
 }
 
-export default App
+export default App;
