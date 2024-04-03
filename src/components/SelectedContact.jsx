@@ -23,7 +23,7 @@ export default function SelectedContact({
 
   return (
     <div>
-      <h1>Contact Details</h1>
+      <h1 style={{ textDecoration: "underline" }}>Contact Details</h1>
       {contact && (
         <div>
           <p>Name: {contact.name}</p>
@@ -42,26 +42,3 @@ export default function SelectedContact({
     </div>
   );
 }
-
-//
-//     return (
-//       <table>
-//         <thead>
-//           <tr>
-//             <th colSpan="3">Contact List</th>
-//           </tr>
-//         </thead>
-//         <tbody>
-//           <tr>
-//             <td>Name</td>
-//             <td>Email</td>
-//             <td>Phone</td>
-//           </tr>
-//           {contacts &&
-//             contacts.map((contact, idx) => {
-//               return <ContactRow key={idx} contact={contact} />;
-//             })}
-//         </tbody>
-//       </table>
-//     );
-//   }
